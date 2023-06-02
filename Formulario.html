@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> 
+    <style>
+        body {
+            background-color: #e8ecef;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .container {
+            position: relative;
+        }
+        
+        .box {
+            background-color: white;
+            width: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            height: auto; /* Ajusta automáticamente la altura según el contenido */
+        }
+        
+        .input-container {
+            display: flex;
+            align-items: flex-start;
+            width: 100%;
+            height: 30px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px;
+            margin-bottom: 10px;
+            height: auto;
+        }
+
+        .input-container2 {
+            display: flex;
+            align-items: flex-start;
+            width: 100%;
+            height: 30px;
+            border-radius: 5px;
+            padding: 5px;
+            margin-bottom: 10px;
+            height: auto;
+        }
+        
+        .input-container input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 1px;
+            font-size: 15px;
+        }
+        
+        .input-container i {
+            margin-left: 5px;
+            color: #999;
+        }
+        
+        .btn-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 50px;
+        }
+
+        /*texto que esta afuera del formulario*/
+        .text {
+            position: absolute;
+            top: -10%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20px;
+        }
+        
+        .text strong {
+            font-weight: bold;
+        }
+        
+        .text1 {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 15px;
+        }
+        
+        /*gustos*/
+        .input-group {
+            position: relative;
+            display: flex;
+            width: 410px;
+        }
+        
+        .form-control {
+            flex: 1;
+            width: 150%; /* Ajusta el ancho del input al 100% */
+        }
+        
+        .input-group-btn {
+            display: flex;
+            align-items: center;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 6px 20px;
+            margin-bottom: 0;
+            font-size: 14px;
+            font-weight: normal;
+            line-height: 1.42857143;
+            text-align: center;
+            white-space: nowrap;
+            vertical-align: middle;
+            cursor: pointer;
+            background-image: none;
+            border: 1px solid transparent;
+            border-radius: 4px;
+        }
+        
+        .btn-success {
+            color: #4cae4c;
+            background-color: #ffffff;
+            border-color: #4cae4c;
+        }
+        .btn-success_aceptar {
+            color: #000000;
+            background-color: #ffffff;
+            border-color: #000000;
+
+        }
+        .btn-success_borrar  {
+            color: #ff0000;
+            background-color: #ffffff;
+            border-color:#ff0000;
+        }
+        
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        
+        th, td {
+            text-align: center;
+            border: 1px solid rgb(139, 139, 139);
+            padding: 8px;
+        }
+
+        
+        .edit-button {
+            background-color: #ffffff;
+            color: rgb(0, 42, 255);
+            border: none;
+            padding: 5px 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 12px;
+            margin: 2px;
+            cursor: pointer;
+        }
+        
+        .edit-input {
+            width: 70px;
+        }
+        
+        .flag {
+            font-size: 48px;
+            background-color: rgb(6, 193, 6);
+            border: 2px solid rgb(255, 255, 255);
+            padding: 10px;
+            color: rgb(255, 255, 255);
+            display: inline-block;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="text"><strong>Web</strong>Developer</div>
+        <br>
+        <br>
+        <div class="box">
+            <div class="input-container2">
+                <div class="text1">formulario de Afiliación</div>
+            </div>
+            <div class="input-container">
+                <input type="text" placeholder="Nombre" id="nombre"/>
+                <i class="fas fa-user"></i>
+            </div>
+            
+            <div class="input-container">
+                <input type="email" placeholder="Email" id="email"/>
+                <i class="fas fa-envelope"></i>
+            </div>
+            
+            <div class="input-container">
+                <input type="text" placeholder="text" id="telefono" />
+                <i class="fas fa-phone"></i>
+            </div>
+            
+            <div class="input-group">
+                <input id="txtgustos" type="text" class="form-control">
+                <span class="input-group-btn">
+                    <button id="gustos" class="btn btn-success" type="button">Gustos</button>
+                </span>
+            </div>
+            <br>
+
+    
+            <div class="input-container" >
+              <table>
+                <tr>
+                    <td >
+                      <i class="flag fas fa-flag"></i>
+                    </td>
+                    <td>
+                        <table id="grilla">
+                            <tr>
+                                <th>Gusto</th>
+                                <th>%</th>
+                                <th>Edit</th>
+                            </tr>
+                        </table>
+                      </td>
+                    </tr>
+                </table>
+            </div>
+
+            <div id="botones_extra" style="display: none;">
+                <div id="aviso" class="error">Pulse Aceptar para guardar los cambios o cancelar para anularlos</div>
+                <button id="aceptar" class="btn btn-success_aceptar" type="button" onclick="redirigir()">Aceptar</button>
+                <button id="borrar" class="btn btn-success_borrar" type="button" >Borrar</button>
+            </div>
+ 
+            <br>
+        </div>
+        <br>
+        
+    </div>
+    <script>
+var edicionEnProgreso = false; // Variable para controlar si hay una edición en curso
+
+function agregarGusto() {
+    if (edicionEnProgreso) {
+        alert("No puedes editar más de una fila a la vez");
+        return;
+    }
+
+    var gustoInput = document.getElementById("txtgustos");
+    var gusto = gustoInput.value;
+    
+    if (gusto !== "") {
+        var table = document.getElementById("grilla");
+        var row = table.insertRow(-1);
+        var gustoCell = row.insertCell(0);
+        gustoCell.innerHTML = gusto;
+        var porcentajeCell = row.insertCell(1);
+        porcentajeCell.innerHTML = "0%";
+        var editarCell = row.insertCell(2);
+        editarCell.innerHTML = '<button class="edit-button" onclick="editarGusto(this)">Editar</button>';
+        
+        gustoInput.value = "";
+    }
+}
+
+function editarGusto(button) {
+    document.getElementById("botones_extra").style.display = "block";
+    if (edicionEnProgreso) {
+        alert("Solo se puede editar una línea. Recargue la página para poder editar otra.");
+        return;
+    }
+    
+    var row = button.parentNode.parentNode;
+    var gustoCell = row.cells[0];
+    var porcentajeCell = row.cells[1];
+    var gusto = gustoCell.innerHTML;
+    var porcentaje = porcentajeCell.innerHTML;
+    //editar los datos en la grilla
+    gustoCell.innerHTML = '<input type="text" class="edit-input" value="' + gusto + '">';
+    porcentajeCell.innerHTML = '<input type="number" class="edit-input" value="' + porcentaje + '">';
+    button.style.backgroundColor = "white";
+    button.style.color = "gray";
+    button.innerHTML = "En edición";
+    
+    // Obtener los datos nuevos al terminar la edición
+    document.getElementById("aceptar").addEventListener("click", function() {
+        var nuevoGusto = gustoCell.querySelector("input").value;
+        var nuevoPorcentaje = porcentajeCell.querySelector("input").value;
+
+        gustoCell.innerHTML = nuevoGusto;
+        porcentajeCell.innerHTML = nuevoPorcentaje + "%";
+        button.style.backgroundColor = "";
+        button.style.color = "rgb(0, 42, 255)";
+        button.innerHTML = "Editar";
+       
+
+        edicionEnProgreso = false; // Finalizar la edición
+        
+        // Llamar a la función redirigir con los datos nuevos
+        redirigir(nuevoGusto, nuevoPorcentaje);
+    });
+    
+    edicionEnProgreso = true; // Establecer que hay una edición en curso
+}
+
+document.getElementById("gustos").addEventListener("click", agregarGusto);
+
+//funcion para limpiar el formulario
+document.getElementById("borrar").addEventListener("click", function() {
+    // Limpia la tabla
+    var tabla = document.getElementById("grilla");
+    var filas = tabla.getElementsByTagName("tr");
+
+    for (var i = 1; i < filas.length; i++) {
+        filas[i].innerHTML = "";
+    }
+    document.getElementById("botones_extra").style.display = "none"; // Oculta los botones extra
+    document.getElementById("nombre").value = ""; // Restablece el campo de nombre
+    document.getElementById("email").value = ""; // Restablece el campo de email
+    document.getElementById("telefono").value = ""; // Restablece el campo de teléfono
+});
+
+//funcion para llenar el url y exportar los datos al otro html
+function redirigir(nuevoGusto, nuevoPorcentaje) {
+    var nombre = document.getElementById("nombre").value;
+    var email = document.getElementById("email").value;
+    var telefono = document.getElementById("telefono").value
+    var url = "Resultado.html?nombre=" + encodeURIComponent(nombre) + "&email=" + encodeURIComponent(email) + "&telefono=" + encodeURIComponent(telefono) + "&gusto=" + encodeURIComponent(nuevoGusto) + "&porcentaje=" + encodeURIComponent(nuevoPorcentaje);
+    window.location.href = url;
+}
+
+    </script>
+</body>
+</html>

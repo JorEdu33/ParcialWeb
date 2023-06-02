@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> 
+    <style>
+        body {
+            background-color: #e8ecef;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .input-container {
+            display: flex;
+            align-items: flex-start;
+            width: 100%;
+            height: 30px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 5px;
+            margin-bottom: 10px;
+            height: auto;
+        }
+
+        .box {
+            width: 400px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            padding: 20px;
+            height: auto;
+        }
+        
+        .blue-box {
+            background-color: rgb(24, 174, 255);
+            color: white;
+            text-align: center;
+        }
+        
+        .white-box {
+            background-color: white;
+            color: black;
+            text-align: center;
+        }
+        
+        .happy-face {
+            font-size: 80px;
+            color: black;
+            align-self: flex-start;
+            margin-right: auto;
+        }
+
+        .big-text {
+            font-size: 50px;
+            margin-bottom: 30px;
+        }
+        
+        .small-text {
+            font-size: 18px;
+        }
+        
+        .email-container {
+            background-color: blue;
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .telefono-container {
+            background-color: rgb(44, 166, 247);
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .gusto-container {
+            background-color: rgb(28, 219, 50);
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .porcentaje-container {
+            background-color: rgb(255, 0, 0);
+            color: white;
+            padding: 5px;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Resultado</h1>
+
+        <div class="box blue-box">
+            <i class="happy-face far fa-smile"></i>
+            <div class="big-text" id="nombreMostrado"></div>
+            <p class="small-text">Ficha</p>
+        </div>
+
+        <div class="box white-box">
+            <div class="input-container">
+                <span>Email:</span>
+                <div id="emailContainer" class="email-container"></div>
+            </div>
+            <div class="input-container">
+                <span>Telefono:</span>
+                <div id="telefonoContainer" class="telefono-container"></div>
+            </div>
+
+            <div class="input-container">
+                <span>Gusto:</span>
+                <div id="gustoContainer" class="gusto-container"></div>
+            </div>
+
+            <div class="input-container">
+                <span>porcentaje:</span>
+                <div id="porcentajeContainer" class="porcentaje-container"></div>
+            </div>
+
+
+        </div>
+    </div>
+    <script>
+        // Obtener el parámetro "nombre" de la URL
+        var parametrosURL = new URLSearchParams(window.location.search);
+        var nombre = parametrosURL.get("nombre");
+        var email = parametrosURL.get("email");
+        var telefono = parametrosURL.get("telefono");
+        var gusto = parametrosURL.get("gusto");
+        var porcentaje = parametrosURL.get("porcentaje");
+        
+        // Mostrar el nombre en la caja azul
+        document.getElementById("nombreMostrado").textContent = nombre;
+        
+        // Mostrar en las cajas correspondientes
+        document.getElementById("emailContainer").textContent = email;
+        document.getElementById("telefonoContainer").textContent = telefono;
+        document.getElementById("gustoContainer").textContent = gusto;
+        document.getElementById("porcentajeContainer").textContent = porcentaje;
+    </script>
+</body>
+</html>
